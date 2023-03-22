@@ -62,6 +62,7 @@ export default function Meme() {
         ></input>
         <button className="image-button" onClick={fetchMeme}>
           New Image
+          {/* <p className="button-text"></p> */}
         </button>
       </div>
       <div className="meme">
