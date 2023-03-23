@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
-// import memesData from "./memesData";
 import { useState } from "react";
 
 export default function Meme() {
-  // const [memeImage, setMemeImage] = useState("");
-
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
@@ -14,16 +11,15 @@ export default function Meme() {
 
   const [allMemes, setAllMemes] = useState([]);
 
+  // last bit of the lesson/module was to get the meme data
+  // from the API instead of the memesData file but that gave an err
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes));
   }, []);
 
-  // console.log(allMemes);
-
   function fetchMeme() {
-    // const memesArray = allMemes.data.memes;
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
     setMeme((prevMeme) => ({
@@ -46,7 +42,7 @@ export default function Meme() {
         <input
           type="text"
           className="input-one"
-          placeholder="Top Text"
+          placeholder="Top text ..."
           name="topText"
           value={meme.topText}
           onChange={handleChange}
@@ -55,14 +51,13 @@ export default function Meme() {
         <input
           type="text"
           className="input-two"
-          placeholder="Bottom Text"
+          placeholder="Bottom text ..."
           name="bottomText"
           value={meme.bottomText}
           onChange={handleChange}
         ></input>
         <button className="image-button" onClick={fetchMeme}>
-          New Image
-          {/* <p className="button-text"></p> */}
+          Get a new image
         </button>
       </div>
       <div className="meme">

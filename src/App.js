@@ -12,9 +12,6 @@ function App() {
     <div className="App">
       <Container>
         <Row>
-          {/*  <Col>       {memesData.map((meme) => (
-            <div className="map-memes">{meme.name}</div>
-          ))}</Col> */}
           <Col>
             <Header />
             <Meme />
