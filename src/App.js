@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import Header from "./Header";
 import Meme from "./Meme";
-import memesData from "./memesData";
 import "./App.css";
 
 function App() {

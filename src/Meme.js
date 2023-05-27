@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function Meme() {
+  // State in which meme data is saved
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
@@ -11,14 +12,15 @@ export default function Meme() {
 
   const [allMemes, setAllMemes] = useState([]);
 
-  // last bit of the lesson/module was to get the meme data
-  // from the API instead of the memesData file but that gave an err
+  // Fetches data from API
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes));
   }, []);
 
+  // Assigns a url/index to meme images and, upon clicking the 'get new image button
+  // returns a meme image from the array which is different to the previous image
   function fetchMeme() {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
@@ -28,6 +30,7 @@ export default function Meme() {
     }));
   }
 
+  // Handles form inputs
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({

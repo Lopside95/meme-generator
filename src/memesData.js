@@ -1,4 +1,4 @@
-export default {
+/* export default {
   success: true,
   data: {
     memes: [
@@ -805,3 +805,4 @@ export default {
     ],
   },
 };
+ */
